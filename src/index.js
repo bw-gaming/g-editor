@@ -13,9 +13,16 @@ let element = window.Bw;
 console.log('window.Bw');
 const field = new SquidexFormField();
 field.onInit(context => {
+  console.log('on init');
   if(context.initialContent && context.initialContent.data.content){
-    field.valueChanged(JSON.stringify(context.initialContent.data.content.iv));
+    field.valueChanged((context.initialContent.data.content.iv));
+    console.log('on init value set:',context.initialContent.data.content.iv);
   }
+  else 
+  {
+    field.valueChanged(undefined);
+  }
+  
 });
 
 

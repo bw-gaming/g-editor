@@ -30,7 +30,7 @@ class Editor extends React.Component {
     type = type.slice(0, -1);
 
     this.state = {
-      postType: type || 'page',
+      postType: type || 'post',
     };
   }
 
@@ -85,6 +85,9 @@ class Editor extends React.Component {
 
     localStorage.removeItem('g-editor-page');
     sessionStorage.removeItem('wp-autosave-block-editor-post-1');
+    window.Bw2 = undefined;
+    window.Bw = undefined;
+
     window.location.reload();
   };
 
