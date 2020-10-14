@@ -96,6 +96,9 @@ export function savePage (data, type = 'page') {
   }
 
   localStorage.setItem('g-editor-page', JSON.stringify(item));
+  window.Bw =  JSON.stringify(item);
+  const field = window.Bw2;
+  field.valueChanged(JSON.stringify(item));
 }
 
 export function changeType (type) {
@@ -103,6 +106,10 @@ export function changeType (type) {
   item.type = type;
 
   localStorage.setItem('g-editor-page', JSON.stringify(item));
+  console.log(JSON.stringify(item));
+  window.Bw = JSON.stringify(item);
+  const field = window.Bw2;
+  field.valueChanged(JSON.stringify(item));
 }
 
 export function deletePage () {
@@ -113,4 +120,12 @@ export function deletePage () {
     sessionStorage.removeItem('wp-autosave-block-editor-post-1');
     window.location.reload();
   }, 500);
+}
+
+export function saveLocal (value) {
+
+
+  localStorage.setItem('g-editor-page', JSON.stringify(value));
+  console.log(JSON.stringify(value));
+  window.Bw = JSON.stringify(value);
 }

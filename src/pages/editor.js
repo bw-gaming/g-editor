@@ -1,10 +1,25 @@
 import React from 'react';
 import types from '../data/types';
-import { changeType } from '../globals/fake-data';
+import {
+  changeType
+} from '../globals/fake-data';
+import ReactDOM from 'react-dom';
+
+(function () {
+  const _render = ReactDOM.render;
+  ReactDOM.render = function () {
+    return arguments[1].react = _render.apply(this, arguments);
+  };
+})();
 
 import './editor.scss';
 
-const { data, editPost, domReady } = window.wp;
+const {
+  data,
+  editPost,
+  domReady
+} = window.wp;
+window.Bw = undefined;
 
 
 class Editor extends React.Component {
